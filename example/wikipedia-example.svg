@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000.0 650.0">
+
+<!-- Format definitions -->
+<defs>
+ <style type="text/css"><![CDATA[
+   #leafDisp   { stroke:black; stroke-width:0.30000001192092896; stroke-opacity:0.6; fill:none; }
+   #branchDisp { stroke:black; stroke-width:3.0; stroke-opacity:0.6; fill:none; }
+   polyline    { stroke:#000000; stroke-width:0.05%; stroke-opacity:0.3; fill:none; }
+   polygon     { stroke:black; stroke-width:0.03%; stroke-opacity:0.4; fill-opacity:0.9; }
+   text        { stroke:none; font-family:Arial-Regular; text-anchor:start; }
+ ]]></style>
+</defs>
+
+<!-- Object metadata -->
+<title>Tree map</title>
+<desc>Produced by treeMapps 3.0.0</desc>
+
+<!-- Geometry -->
+<g id="spatialObject">
+
+<rect style="fill:#FFFFFF;stroke:#000000;stroke-opacity:1" x="418" y="2" width="555" height="565" rx="10" ry="10"/>
+<rect style="fill:#FFFFFF;stroke:#000000;stroke-opacity:1" x="2" y="2" width="413" height="599" rx="10" ry="10"/>
+<rect style="fill:#FFFFFF;stroke:#000000;stroke-opacity:1" x="418" y="570" width="555" height="78" rx="5" ry="5"/>
+<rect style="fill:#FFFFFF;stroke:#000000;stroke-opacity:1" x="976" y="2" width="22" height="646" rx="2" ry="2"/>
+<rect style="fill:#FFFFFF;stroke:#000000;stroke-opacity:1" x="206" y="604" width="209" height="44" rx="5" ry="5"/>
+<rect style="fill:#FFFFFF;stroke:#000000;stroke-opacity:1" x="2" y="604" width="201" height="44" rx="5" ry="5"/>
+<rect id="UnitedKing0" style="fill:#b1b5e0;opacity:1.0;fill-opacity:1.0" x="423" y="4" width="262" height="169" rx="10" ry="10"/>
+<rect id="Poland1" style="fill:#98a1d1;opacity:1.0;fill-opacity:1.0" x="741" y="45" width="126" height="297" rx="10" ry="10"/>
+<rect id="Germany2" style="fill:#babce5;opacity:1.0;fill-opacity:1.0" x="497" y="257" width="241" height="149" rx="10" ry="10"/>
+<rect id="Netherland3" style="fill:#a0a7d6;opacity:1.0;fill-opacity:1.0" x="438" y="176" width="300" height="78" rx="5" ry="5"/>
+<rect id="France4" style="fill:#babce6;opacity:1.0;fill-opacity:1.0" x="557" y="439" width="183" height="126" rx="10" ry="10"/>
+<rect id="Russia5" style="fill:#bebfe8;opacity:1.0;fill-opacity:1.0" x="870" y="26" width="101" height="184" rx="10" ry="10"/>
+<rect id="Spain6" style="fill:#babbe5;opacity:1.0;fill-opacity:1.0" x="439" y="439" width="115" height="126" rx="10" ry="10"/>
+<rect id="Ukraine7" style="fill:#8a95c9;opacity:1.0;fill-opacity:1.0" x="870" y="284" width="101" height="122" rx="10" ry="10"/>
+<rect id="BEL8" style="fill:#a3aad8;opacity:1.0;fill-opacity:1.0" x="420" y="257" width="72" height="149" rx="5" ry="5"/>
+<rect id="Italy9" style="fill:#bebfe8;opacity:1.0;fill-opacity:1.0" x="743" y="466" width="97" height="99" rx="5" ry="5"/>
+<rect id="CZE10" style="fill:#a8addb;opacity:1.0;fill-opacity:1.0" x="741" y="345" width="126" height="61" rx="5" ry="5"/>
+<rect id="CHE11" style="fill:#aeb2de;opacity:1.0;fill-opacity:1.0" x="420" y="409" width="214" height="27" rx="5" ry="5"/>
+<rect id="NOR12" style="fill:#a2a9d7;opacity:1.0;fill-opacity:1.0" x="688" y="4" width="50" height="115" rx="5" ry="5"/>
+<rect id="AUT13" style="fill:#b2b5e1;opacity:1.0;fill-opacity:1.0" x="637" y="409" width="181" height="27" rx="5" ry="5"/>
+<rect id="SWE14" style="fill:#b8bbe5;opacity:1.0;fill-opacity:1.0" x="741" y="4" width="126" height="38" rx="5" ry="5"/>
+<rect id="ROM15" style="fill:#babce6;opacity:1.0;fill-opacity:1.0" x="903" y="439" width="68" height="48" rx="5" ry="5"/>
+<rect id="LTU16" style="fill:#9ba3d3;opacity:1.0;fill-opacity:1.0" x="870" y="239" width="91" height="34" rx="5" ry="5"/>
+<rect id="DNK17" style="fill:#b9bbe5;opacity:1.0;fill-opacity:1.0" x="688" y="122" width="50" height="51" rx="5" ry="5"/>
+<rect id="SVN18" style="fill:#919bcd;opacity:1.0;fill-opacity:1.0" x="743" y="439" width="97" height="24" rx="2" ry="2"/>
+<rect id="EST19" style="fill:#8390c5;opacity:1.0;fill-opacity:1.0" x="870" y="213" width="101" height="23" rx="2" ry="2"/>
+<rect id="BGR20" style="fill:#b1b5e0;opacity:1.0;fill-opacity:1.0" x="903" y="490" width="68" height="34" rx="5" ry="5"/>
+<rect id="BIH21" style="fill:#9ca4d4;opacity:1.0;fill-opacity:1.0" x="843" y="499" width="33" height="66" rx="5" ry="5"/>
+<rect id="PRT22" style="fill:#bbbde6;opacity:1.0;fill-opacity:1.0" x="420" y="439" width="16" height="126" rx="2" ry="2"/>
+<rect id="FIN23" style="fill:#bbbde6;opacity:1.0;fill-opacity:1.0" x="870" y="4" width="101" height="19" rx="2" ry="2"/>
+<rect id="SRB24" style="fill:#b8bae4;opacity:1.0;fill-opacity:1.0" x="879" y="439" width="21" height="89" rx="2" ry="2"/>
+<rect id="GRC25" style="fill:#bdbee7;opacity:1.0;fill-opacity:1.0" x="911" y="527" width="60" height="32" rx="5" ry="5"/>
+<rect id="HRV26" style="fill:#b1b5e0;opacity:1.0;fill-opacity:1.0" x="843" y="439" width="33" height="57" rx="5" ry="5"/>
+<rect id="SVK27" style="fill:#babce5;opacity:1.0;fill-opacity:1.0" x="881" y="409" width="67" height="27" rx="5" ry="5"/>
+<rect id="HUN28" style="fill:#c1c1e9;opacity:1.0;fill-opacity:1.0" x="821" y="409" width="57" height="27" rx="5" ry="5"/>
+<rect id="IRL29" style="fill:#bbbde6;opacity:1.0;fill-opacity:1.0" x="420" y="176" width="15" height="78" rx="2" ry="2"/>
+<rect id="BLR30" style="fill:#c2c2ea;opacity:1.0;fill-opacity:1.0" x="870" y="276" width="101" height="5" rx="2" ry="2"/>
+<rect id="MDA31" style="fill:#b5b8e2;opacity:1.0;fill-opacity:1.0" x="951" y="409" width="20" height="27" rx="2" ry="2"/>
+<rect id="MON32" style="fill:#9ea6d5;opacity:1.0;fill-opacity:1.0" x="879" y="531" width="21" height="19" rx="2" ry="2"/>
+<rect id="ISR33" style="fill:#c8c7ee;opacity:1.0;fill-opacity:1.0" x="903" y="562" width="68" height="3" rx="2" ry="2"/>
+<rect id="LVA34" style="fill:#c1c2ea;opacity:1.0;fill-opacity:1.0" x="964" y="239" width="7" height="34" rx="2" ry="2"/>
+<rect id="ALB35" style="fill:#bcbee7;opacity:1.0;fill-opacity:1.0" x="879" y="553" width="21" height="12" rx="2" ry="2"/>
+<rect id="ISL36" style="fill:#abb0dd;opacity:1.0;fill-opacity:1.0" x="420" y="4" width="0" height="101" rx="2" ry="2"/>
+<rect id="LUX37" style="fill:#b3b6e1;opacity:1.0;fill-opacity:1.0" x="495" y="257" width="-1" height="149" rx="2" ry="2"/>
+<rect id="MKD38" style="fill:#c0c0e9;opacity:1.0;fill-opacity:1.0" x="903" y="527" width="5" height="32" rx="2" ry="2"/>
+<rect id="FRO39" style="fill:#c8c7ee;opacity:1.0;fill-opacity:1.0" x="420" y="108" width="0" height="65" rx="2" ry="2"/>
+<rect id="UnitedStat40" style="fill:#bdbee7;opacity:1.0;fill-opacity:1.0" x="4" y="73" width="409" height="503" rx="10" ry="10"/>
+<rect id="Canada41" style="fill:#babce6;opacity:1.0;fill-opacity:1.0" x="4" y="4" width="409" height="66" rx="5" ry="5"/>
+<rect id="MEX42" style="fill:#c5c5ec;opacity:1.0;fill-opacity:1.0" x="4" y="579" width="361" height="10" rx="2" ry="2"/>
+<rect id="Cuba43" style="fill:#bbbde6;opacity:1.0;fill-opacity:1.0" x="128" y="592" width="157" height="7" rx="2" ry="2"/>
+<rect id="PRI44" style="fill:#bdbee8;opacity:1.0;fill-opacity:1.0" x="326" y="592" width="87" height="7" rx="2" ry="2"/>
+<rect id="GTM45" style="fill:#c4c3eb;opacity:1.0;fill-opacity:1.0" x="4" y="592" width="67" height="7" rx="2" ry="2"/>
+<rect id="GRL46" style="fill:#002877;opacity:1.0;fill-opacity:1.0" x="368" y="579" width="45" height="10" rx="2" ry="2"/>
+<rect id="CRI47" style="fill:#c3c3eb;opacity:1.0;fill-opacity:1.0" x="74" y="592" width="51" height="7" rx="2" ry="2"/>
+<rect id="JAM48" style="fill:#c5c4ec;opacity:1.0;fill-opacity:1.0" x="288" y="592" width="35" height="7" rx="2" ry="2"/>
+<rect id="Japan49" style="fill:#c5c4ec;opacity:1.0;fill-opacity:1.0" x="828" y="572" width="143" height="74" rx="5" ry="5"/>
+<rect id="India50" style="fill:#c5c4ec;opacity:1.0;fill-opacity:1.0" x="575" y="572" width="78" height="74" rx="5" ry="5"/>
+<rect id="China51" style="fill:#c7c6ed;opacity:1.0;fill-opacity:1.0" x="714" y="572" width="60" height="64" rx="5" ry="5"/>
+<rect id="AZE52" style="fill:#b0b4e0;opacity:1.0;fill-opacity:1.0" x="482" y="587" width="39" height="54" rx="5" ry="5"/>
+<rect id="TUR53" style="fill:#c6c5ec;opacity:1.0;fill-opacity:1.0" x="420" y="572" width="39" height="41" rx="5" ry="5"/>
+<rect id="ISR54" style="fill:#bebfe8;opacity:1.0;fill-opacity:1.0" x="420" y="624" width="52" height="22" rx="2" ry="2"/>
+<rect id="Nepal55" style="fill:#8995c8;opacity:1.0;fill-opacity:1.0" x="656" y="572" width="28" height="39" rx="5" ry="5"/>
+<rect id="PAK56" style="fill:#c6c5ed;opacity:1.0;fill-opacity:1.0" x="547" y="597" width="21" height="43" rx="2" ry="2"/>
+<rect id="Iran57" style="fill:#c6c6ed;opacity:1.0;fill-opacity:1.0" x="524" y="597" width="20" height="43" rx="2" ry="2"/>
+<rect id="TLS58" style="fill:#c8c7ee;opacity:1.0;fill-opacity:1.0" x="808" y="596" width="17" height="50" rx="2" ry="2"/>
+<rect id="PHL59" style="fill:#c3c3eb;opacity:1.0;fill-opacity:1.0" x="777" y="572" width="28" height="30" rx="5" ry="5"/>
+<rect id="IDN60" style="fill:#c6c6ed;opacity:1.0;fill-opacity:1.0" x="777" y="619" width="28" height="27" rx="5" ry="5"/>
+<rect id="THA61" style="fill:#c6c5ed;opacity:1.0;fill-opacity:1.0" x="687" y="608" width="24" height="28" rx="2" ry="2"/>
+<rect id="MMR62" style="fill:#25458d;opacity:1.0;fill-opacity:1.0" x="687" y="580" width="24" height="25" rx="2" ry="2"/>
+<rect id="BGD63" style="fill:#aaafdc;opacity:1.0;fill-opacity:1.0" x="656" y="614" width="28" height="19" rx="2" ry="2"/>
+<rect id="ARM64" style="fill:#7786bd;opacity:1.0;fill-opacity:1.0" x="482" y="572" width="39" height="12" rx="2" ry="2"/>
+<rect id="KOR65" style="fill:#c7c6ed;opacity:1.0;fill-opacity:1.0" x="808" y="572" width="17" height="21" rx="2" ry="2"/>
+<rect id="AFG66" style="fill:#b1b4e0;opacity:1.0;fill-opacity:1.0" x="535" y="572" width="16" height="22" rx="2" ry="2"/>
+<rect id="VNM67" style="fill:#c7c6ed;opacity:1.0;fill-opacity:1.0" x="733" y="639" width="41" height="7" rx="2" ry="2"/>
+<rect id="MYS68" style="fill:#c7c6ed;opacity:1.0;fill-opacity:1.0" x="777" y="605" width="28" height="11" rx="2" ry="2"/>
+<rect id="KAZ69" style="fill:#c1c2ea;opacity:1.0;fill-opacity:1.0" x="554" y="572" width="14" height="22" rx="2" ry="2"/>
+<rect id="LKA70" style="fill:#bfc0e8;opacity:1.0;fill-opacity:1.0" x="656" y="636" width="28" height="10" rx="2" ry="2"/>
+<rect id="Syria71" style="fill:#c5c5ec;opacity:1.0;fill-opacity:1.0" x="462" y="600" width="17" height="13" rx="2" ry="2"/>
+<rect id="GEO72" style="fill:#c0c1e9;opacity:1.0;fill-opacity:1.0" x="462" y="572" width="17" height="12" rx="2" ry="2"/>
+<rect id="ARE73" style="fill:#c5c5ec;opacity:1.0;fill-opacity:1.0" x="524" y="643" width="44" height="3" rx="2" ry="2"/>
+<rect id="KGZ74" style="fill:#bfc0e9;opacity:1.0;fill-opacity:1.0" x="571" y="572" width="1" height="74" rx="2" ry="2"/>
+<rect id="TKM75" style="fill:#697cb5;opacity:1.0;fill-opacity:1.0" x="524" y="572" width="8" height="22" rx="2" ry="2"/>
+<rect id="SGP76" style="fill:#c5c5ec;opacity:1.0;fill-opacity:1.0" x="687" y="639" width="24" height="7" rx="2" ry="2"/>
+<rect id="Iraq77" style="fill:#b2b6e1;opacity:1.0;fill-opacity:1.0" x="447" y="616" width="32" height="5" rx="2" ry="2"/>
+<rect id="CYP78" style="fill:#b5b8e2;opacity:1.0;fill-opacity:1.0" x="462" y="587" width="17" height="10" rx="2" ry="2"/>
+<rect id="Yemen79" style="fill:#b8bae4;opacity:1.0;fill-opacity:1.0" x="482" y="644" width="39" height="2" rx="2" ry="2"/>
+<rect id="MNG80" style="fill:#b7b9e4;opacity:1.0;fill-opacity:1.0" x="687" y="572" width="24" height="5" rx="2" ry="2"/>
+<rect id="LBN81" style="fill:#c2c2ea;opacity:1.0;fill-opacity:1.0" x="420" y="616" width="24" height="5" rx="2" ry="2"/>
+<rect id="KHM82" style="fill:#8a96c9;opacity:1.0;fill-opacity:1.0" x="714" y="639" width="16" height="7" rx="2" ry="2"/>
+<rect id="SAU83" style="fill:#c7c6ed;opacity:1.0;fill-opacity:1.0" x="475" y="624" width="4" height="22" rx="2" ry="2"/>
+<rect id="AUS84" style="fill:#b6b8e3;opacity:1.0;fill-opacity:1.0" x="978" y="14" width="18" height="457" rx="2" ry="2"/>
+<rect id="ATA85" style="fill:#c8c7ee;opacity:1.0;fill-opacity:1.0" x="978" y="538" width="18" height="108" rx="2" ry="2"/>
+<rect id="NZL86" style="fill:#bbbde6;opacity:1.0;fill-opacity:1.0" x="978" y="474" width="18" height="61" rx="2" ry="2"/>
+<rect id="PNG87" style="fill:#96a0d0;opacity:1.0;fill-opacity:1.0" x="978" y="4" width="18" height="7" rx="2" ry="2"/>
+<rect id="ZAF88" style="fill:#bfc0e8;opacity:1.0;fill-opacity:1.0" x="300" y="606" width="29" height="40" rx="5" ry="5"/>
+<rect id="MDG89" style="fill:#8592c6;opacity:1.0;fill-opacity:1.0" x="397" y="606" width="16" height="40" rx="2" ry="2"/>
+<rect id="Kenya90" style="fill:#c2c2ea;opacity:1.0;fill-opacity:1.0" x="366" y="624" width="28" height="22" rx="2" ry="2"/>
+<rect id="ETH91" style="fill:#9ea6d5;opacity:1.0;fill-opacity:1.0" x="366" y="606" width="28" height="15" rx="2" ry="2"/>
+<rect id="Egypt92" style="fill:#c7c6ed;opacity:1.0;fill-opacity:1.0" x="332" y="606" width="21" height="19" rx="2" ry="2"/>
+<rect id="BFA93" style="fill:#7081ba;opacity:1.0;fill-opacity:1.0" x="227" y="624" width="17" height="22" rx="2" ry="2"/>
+<rect id="DZA94" style="fill:#c5c4ec;opacity:1.0;fill-opacity:1.0" x="247" y="606" width="17" height="19" rx="2" ry="2"/>
+<rect id="NGA95" style="fill:#c7c6ed;opacity:1.0;fill-opacity:1.0" x="267" y="626" width="15" height="20" rx="2" ry="2"/>
+<rect id="Mali96" style="fill:#939dce;opacity:1.0;fill-opacity:1.0" x="225" y="606" width="19" height="15" rx="2" ry="2"/>
+<rect id="MAR97" style="fill:#c7c6ed;opacity:1.0;fill-opacity:1.0" x="208" y="606" width="14" height="15" rx="2" ry="2"/>
+<rect id="UGA98" style="fill:#c4c4ec;opacity:1.0;fill-opacity:1.0" x="342" y="628" width="11" height="18" rx="2" ry="2"/>
+<rect id="GIN99" style="fill:#8390c5;opacity:1.0;fill-opacity:1.0" x="208" y="624" width="16" height="10" rx="2" ry="2"/>
+<rect id="Togo100" style="fill:#b7b9e4;opacity:1.0;fill-opacity:1.0" x="247" y="628" width="17" height="9" rx="2" ry="2"/>
+<rect id="CIV101" style="fill:#bfc0e8;opacity:1.0;fill-opacity:1.0" x="208" y="637" width="16" height="9" rx="2" ry="2"/>
+<rect id="ZAR102" style="fill:#c8c7ee;opacity:1.0;fill-opacity:1.0" x="285" y="606" width="12" height="12" rx="2" ry="2"/>
+<rect id="MOZ103" style="fill:#b8bae4;opacity:1.0;fill-opacity:1.0" x="356" y="626" width="7" height="20" rx="2" ry="2"/>
+<rect id="NAM104" style="fill:#97a0d0;opacity:1.0;fill-opacity:1.0" x="285" y="635" width="12" height="11" rx="2" ry="2"/>
+<rect id="TUN105" style="fill:#c6c5ec;opacity:1.0;fill-opacity:1.0" x="267" y="606" width="15" height="8" rx="2" ry="2"/>
+<rect id="Sudan106" style="fill:#c6c6ed;opacity:1.0;fill-opacity:1.0" x="332" y="628" width="7" height="18" rx="2" ry="2"/>
+<rect id="AGO107" style="fill:#bebfe8;opacity:1.0;fill-opacity:1.0" x="285" y="621" width="12" height="11" rx="2" ry="2"/>
+<rect id="Ghana108" style="fill:#c3c3eb;opacity:1.0;fill-opacity:1.0" x="247" y="640" width="17" height="6" rx="2" ry="2"/>
+<rect id="TZA109" style="fill:#bebfe8;opacity:1.0;fill-opacity:1.0" x="356" y="606" width="7" height="17" rx="2" ry="2"/>
+<rect id="Niger110" style="fill:#c7c6ed;opacity:1.0;fill-opacity:1.0" x="267" y="617" width="15" height="6" rx="2" ry="2"/>
+<rect id="BRA111" style="fill:#c6c6ed;opacity:1.0;fill-opacity:1.0" x="131" y="606" width="70" height="40" rx="5" ry="5"/>
+<rect id="ARG112" style="fill:#c2c2ea;opacity:1.0;fill-opacity:1.0" x="58" y="606" width="51" height="40" rx="5" ry="5"/>
+<rect id="Chile113" style="fill:#c4c3eb;opacity:1.0;fill-opacity:1.0" x="16" y="625" width="33" height="21" rx="2" ry="2"/>
+<rect id="COL114" style="fill:#c6c6ed;opacity:1.0;fill-opacity:1.0" x="16" y="606" width="33" height="16" rx="2" ry="2"/>
+<rect id="BOL115" style="fill:#b8bae4;opacity:1.0;fill-opacity:1.0" x="112" y="606" width="16" height="29" rx="2" ry="2"/>
+<rect id="Peru116" style="fill:#c6c5ed;opacity:1.0;fill-opacity:1.0" x="4" y="621" width="9" height="25" rx="2" ry="2"/>
+<rect id="VEN117" style="fill:#c7c6ed;opacity:1.0;fill-opacity:1.0" x="52" y="606" width="3" height="40" rx="2" ry="2"/>
+<rect id="URY118" style="fill:#c3c3eb;opacity:1.0;fill-opacity:1.0" x="112" y="638" width="16" height="8" rx="2" ry="2"/>
+<rect id="ECU119" style="fill:#c6c5ed;opacity:1.0;fill-opacity:1.0" x="4" y="606" width="9" height="12" rx="2" ry="2"/>
+<text fill="#000000" x="425.0" y="163.0" font-size="14.0" >United Kingdom</text>
+<text fill="#000000" x="743.0" y="332.0" font-size="14.0" >Poland</text>
+<text fill="#000000" x="499.0" y="396.0" font-size="14.0" >Germany</text>
+<text fill="#000000" x="440.0" y="244.0" font-size="14.0" >Netherlands</text>
+<text fill="#000000" x="559.0" y="555.0" font-size="14.0" >France</text>
+<text fill="#000000" x="872.0" y="200.0" font-size="14.0" >Russia</text>
+<text fill="#000000" x="441.0" y="555.0" font-size="14.0" >Spain</text>
+<text fill="#000000" x="872.0" y="396.0" font-size="14.0" >Ukraine</text>
+<text fill="#000000" x="422.0" y="396.0" font-size="14.0" >BEL</text>
+<text fill="#000000" x="745.0" y="555.0" font-size="14.0" >Italy</text>
+<text fill="#000000" x="743.0" y="396.0" font-size="14.0" >CZE</text>
+<text fill="#000000" x="422.0" y="426.8466796875" font-size="14.0" >CHE</text>
+<text fill="#000000" x="690.0" y="109.0" font-size="14.0" >NOR</text>
+<text fill="#000000" x="639.0" y="426.8466796875" font-size="14.0" >AUT</text>
+<text fill="#000000" x="743.0" y="32.0" font-size="14.0" >SWE</text>
+<text fill="#000000" x="905.0" y="477.0" font-size="14.0" >ROM</text>
+<text fill="#000000" x="872.0" y="263.0" font-size="14.0" >LTU</text>
+<text fill="#000000" x="690.0" y="163.0" font-size="14.0" >DNK</text>
+<text fill="#000000" x="745.0" y="455.8466796875" font-size="14.0" >SVN</text>
+<text fill="#000000" x="872.0" y="228.8466796875" font-size="14.0" >EST</text>
+<text fill="#000000" x="905.0" y="514.0" font-size="14.0" >BGR</text>
+<text fill="#000000" x="845.0" y="555.0" font-size="14.0" >BIH</text>
+<text fill="#000000" x="872.0" y="17.8466796875" font-size="14.0" >FIN</text>
+<text fill="#000000" x="881.0" y="518.0" font-size="8.0" >SRB</text>
+<text fill="#000000" x="913.0" y="549.0" font-size="14.0" >GRC</text>
+<text fill="#000000" x="845.0" y="486.0" font-size="8.0" >HRV</text>
+<text fill="#000000" x="883.0" y="426.8466796875" font-size="14.0" >SVK</text>
+<text fill="#000000" x="823.0" y="426.8466796875" font-size="14.0" >HUN</text>
+<text fill="#000000" x="422.0" y="244.0" font-size="8.0" >IRL</text>
+<text fill="#000000" x="881.0" y="562.3814086914062" font-size="8.0" >ALB</text>
+<text fill="#000000" x="6.0" y="566.0" font-size="14.0" >United States</text>
+<text fill="#000000" x="6.0" y="60.0" font-size="14.0" >Canada</text>
+<text fill="#000000" x="6.0" y="586.9739990234375" font-size="8.0" >MEX</text>
+<text fill="#000000" x="370.0" y="586.9739990234375" font-size="8.0" >GRL</text>
+<text fill="#000000" x="830.0" y="636.0" font-size="14.0" >Japan</text>
+<text fill="#000000" x="577.0" y="636.0" font-size="14.0" >India</text>
+<text fill="#000000" x="716.0" y="626.0" font-size="14.0" >China</text>
+<text fill="#000000" x="484.0" y="631.0" font-size="14.0" >AZE</text>
+<text fill="#000000" x="422.0" y="603.0" font-size="14.0" >TUR</text>
+<text fill="#000000" x="422.0" y="639.8466796875" font-size="14.0" >ISR</text>
+<text fill="#000000" x="658.0" y="601.0" font-size="8.0" >Nepal</text>
+<text fill="#000000" x="549.0" y="630.0" font-size="8.0" >PAK</text>
+<text fill="#000000" x="526.0" y="630.0" font-size="8.0" >Iran</text>
+<text fill="#000000" x="810.0" y="636.0" font-size="8.0" >TLS</text>
+<text fill="#000000" x="779.0" y="592.0" font-size="8.0" >PHL</text>
+<text fill="#000000" x="779.0" y="636.786865234375" font-size="8.0" >IDN</text>
+<text fill="#000000" x="689.0" y="626.0" font-size="8.0" >THA</text>
+<text fill="#000000" x="689.0" y="595.0" font-size="8.0" >MMR</text>
+<text fill="#000000" x="658.0" y="627.0388793945312" font-size="8.0" >BGD</text>
+<text fill="#000000" x="484.0" y="581.5687866210938" font-size="8.0" >ARM</text>
+<text fill="#000000" x="779.0" y="613.2713623046875" font-size="8.0" >MYS</text>
+<text fill="#000000" x="658.0" y="643.9739990234375" font-size="8.0" >LKA</text>
+<text fill="#000000" x="980.0" y="636.0" font-size="8.0" >ATA</text>
+<text fill="#000000" x="980.0" y="525.0" font-size="8.0" >NZL</text>
+<text fill="#000000" x="302.0" y="636.0" font-size="8.0" >ZAF</text>
+<text fill="#000000" x="368.0" y="637.7894287109375" font-size="8.0" >Kenya</text>
+<text fill="#000000" x="368.0" y="617.4567260742188" font-size="8.0" >ETH</text>
+<text fill="#000000" x="227.0" y="615.76953125" font-size="8.0" >Mali</text>
+<text fill="#000000" x="133.0" y="636.0" font-size="14.0" >BRA</text>
+<text fill="#000000" x="60.0" y="636.0" font-size="14.0" >ARG</text>
+<text fill="#000000" x="18.0" y="639.0801391601562" font-size="8.0" >Chile</text>
+<text fill="#000000" x="18.0" y="618.7583618164062" font-size="8.0" >COL</text>
+</g>
+<g id="branchDisp">
+</g>
+</svg>

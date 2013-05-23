@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+
+<!--Colour table rules-->
+<!--Each rule associates a colour with a value.-->
+<colourTable>
+
+ <rule value="0">200,199,238,255</rule>
+ <rule value="99">0,40,119,255</rule>
+
+<!-- To map a single value to a certain color (e.g. missing data is -1 use
+<rule value="-1" type="discrete"></rule>
+-->
+
+</colourTable> 
+

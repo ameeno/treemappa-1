@@ -2,9 +2,9 @@ A branch of TreeMappa (http://code.google.com/p/treemappa)
 
 Released under the LGPL license (as is the original code).
 
-This port was based on the r9 revision and concentrated on rewriting SVG output to add a some different uses/features for [visualizations produced at the Oxford Internet Institute]](http://www.oii.ox.ac.uk/vis/?tool=TreeMappa).
+This port was based on the r9 revision and concentrated on rewriting SVG output to add a some different uses/features for [visualizations produced at the Oxford Internet Institute](http://www.oii.ox.ac.uk/vis/?tool=TreeMappa).
 
-This port is focused on running from terminal/command line. Example forthcoming...
+This port is focused on running from terminal/command line. An example creating a visualization is in the example folder. [Full documentation for the original library is on its creator's website](http://www.soi.city.ac.uk/~jwo/treemappa/software/userguide.html).
 
 Changes from upstream include:
 
