@@ -62,6 +62,7 @@ public class TreeMappa
 
 	private double aspectRatio,readability,distDisplacement,angDisplacement;
 	private int numNodes, numAdjacentLeaves, numSpatialNodes;
+	private int numDummies, numLeaves;//SAH
 	private double west,south,east,north;			// Geographic bounds of spatial layouts.
 
 	private Layout[] layoutTypes;
@@ -473,6 +474,8 @@ public class TreeMappa
 		}
 		numNodes = 0;
 		numAdjacentLeaves = 0;
+		numLeaves = 0;//SAH
+		numDummies=0;//SAH
 		numSpatialNodes = 0;
 		aspectRatio = 0;
 		readability = 0;
@@ -501,13 +504,16 @@ public class TreeMappa
 		}        
 		aspectRatio /= numNodes;
 
-
+	
 		DecimalFormat df = new DecimalFormat("#0.##");
 		for (int i=0; i<=maxDepth; i++)
 		{
 			System.out.println("\tLevel "+i+":\t"+layoutTypes[i]+" with border of "+borderWidths[i]);
 		}
 		System.out.println("\tNumber of nodes:\t"+numNodes);
+		System.out.println("\tNumber of adj leaves:\t"+numAdjacentLeaves);//SAH
+		System.out.println("\tNumber of leaves:\t"+numLeaves);//SAH
+		System.out.println("\tNumber of dummies:\t"+numDummies);//SAH
 		System.out.println("\tMaximum tree depth:\t"+(maxDepth+1));
 		System.out.println("\tMean aspect ratio:\t"+df.format(aspectRatio));
 		if (numAdjacentLeaves > 0)
@@ -870,7 +876,12 @@ public class TreeMappa
 		{
 			aspectRatio += Math.max(rect.getWidth()/rect.getHeight(), rect.getHeight()/rect.getWidth());
 			numNodes++;
+		} else {//SAH
+			numDummies++;
 		}
+
+		//SAH count leaves
+		if (node.isLeaf() && !isDummy) numLeaves++;
 
 		if (node.getChildCount() > 0)
 		{
@@ -984,6 +995,7 @@ public class TreeMappa
 				numAdjacentLeaves+=2;		// Account for first two nodes used to find initial vector.
 			}
 		}
+		
 	}
 
 	/** Recursively calculates the displacement statistics of the given spatial node.
@@ -1233,7 +1245,8 @@ public class TreeMappa
 				firstBranchIndex = minTokens-3;
 				itemsPerBranch=3;
 			}
-			//int ln = 0;	        	        
+			//int ln = 0;	
+			int lineCount=0;//SAH
 			while (bInFile.ready())
 			{
 				//if (++ln%500 == 0) System.err.println(ln);
@@ -1243,14 +1256,22 @@ public class TreeMappa
 				int lastBranchIndex;
 
 				// Ignore blank lines or those starting with a #.
-				if ((inputLine.trim().startsWith("#")) || (inputLine.trim().length()==0))
+				if ((inputLine.trim().startsWith("#")) || (inputLine.trim().length()==0) ||(inputLine.trim().startsWith("\"#")))
 				{
 					continue;
 				}
 
+				lineCount++;//SAH
 				// Separate out the comma separated tokens.
 				// TODO: Include commas within paired quotation marks.
 				tokens = inputLine.split(",");
+				for (int i=0; i<tokens.length; i++) {//Trim quotation marks if there
+					String t = tokens[i];
+					if (t.length()>0 && t.charAt(0)=='"' && t.charAt(t.length()-1)=='"') {
+						t=t.substring(1,t.length()-1);
+					}
+					tokens[i]=t.trim();//Also trim whitespace at start or end (SAH)
+				}
 
 				if (tokens.length < minTokens)
 				{
@@ -1406,7 +1427,10 @@ public class TreeMappa
 				node.setLabel(tokens[0]);
 				parent.add(node);
 			}
-			bInFile.close();	    	
+			bInFile.close();	 
+			if (this.props.getIsVerbose()) {
+				System.out.println("\tRead " + lineCount + " valid lines from csv.");//SAH
+			}
 		}
 		catch (IOException e)
 		{
