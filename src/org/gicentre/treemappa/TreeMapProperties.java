@@ -42,6 +42,7 @@ public class TreeMapProperties
 	static final String LEAF_VECTOR_WIDTH	= "leafVectorWidth";
 	static final String MAX_BRANCH_TEXT		= "maxBranchText";
 	static final String MAX_LEAF_TEXT		= "maxLeafText";
+	static final String MIN_LEAF_TEXT		= "minLeafText";
 	static final String MUTATION 			= "mutation";	
 	static final String OUT_FILE 			= "outFile";
 	static final String RAND_COLOUR_LEVEL	= "randColourLevel";
@@ -56,10 +57,14 @@ public class TreeMapProperties
 	static final String TEXT_FONT			= "textFont";
 	static final String TEXT_ONLY			= "textOnly";
 	static final String IS_TRANSPARENT 		= "transparent";
+	static final String IS_INTERACTIVE 		= "interactive";//SAH
+	static final String LABEL_ALL		 	= "labelAll";//SAH
 	static final String USE_LABELS			= "useLabels";
 	static final String VECTOR_WIDTH		= "vectorWidth";
 	static final String VERBOSE				= "verbose";
 	static final String WIDTH				= "width";
+	static final String BRANCH_FILL			= "branchFill";
+	static final String CIRCLE_LEAVES			= "circleLeaves";
 
 
 	// ------------------------------------- Constructor --------------------------------------
@@ -156,7 +161,10 @@ public class TreeMapProperties
 				(key.equalsIgnoreCase(LABEL_LEAVES)) || (key.equalsIgnoreCase(LABEL_BRANCHES)) ||
 				(key.equalsIgnoreCase(SHOW_LEAF_DISP)) || (key.equalsIgnoreCase(SHOW_ARROW_HEAD)) ||
 				(key.equalsIgnoreCase(SHOW_STATISTICS)) || (key.equalsIgnoreCase(SHOW_TREE_VIEW)) ||
-				(key.equalsIgnoreCase(TEXT_ONLY)) || (key.equalsIgnoreCase(VERBOSE)))
+				(key.equalsIgnoreCase(TEXT_ONLY)) || (key.equalsIgnoreCase(VERBOSE)) 
+				|| (key.equalsIgnoreCase(IS_INTERACTIVE)) || (key.equalsIgnoreCase(CIRCLE_LEAVES)) 
+				|| (key.equalsIgnoreCase(LABEL_ALL)) //SAH
+				)
 		{
 			if ((value.equalsIgnoreCase("true")) || (value.equalsIgnoreCase("false")))
 			{
@@ -218,7 +226,8 @@ public class TreeMapProperties
 			properties.setProperty(key.toLowerCase(), value);
 		}
 		else if ((key.equalsIgnoreCase(WIDTH)) || (key.equalsIgnoreCase(HEIGHT)) || 
-				(key.equalsIgnoreCase(MAX_LEAF_TEXT)) || (key.equalsIgnoreCase(LEAF_VECTOR_WIDTH)))
+				(key.equalsIgnoreCase(MAX_LEAF_TEXT)) || (key.equalsIgnoreCase(LEAF_VECTOR_WIDTH))
+				|| (key.equalsIgnoreCase(MIN_LEAF_TEXT)) )//SAH
 		{
 			try
 			{
@@ -258,7 +267,9 @@ public class TreeMapProperties
 				properties.setProperty(key.toLowerCase(), value);
 			}
 		}
-		else if ((key.equalsIgnoreCase(BORDER_COLOUR)) || (key.equalsIgnoreCase(LEAF_TEXT_COLOUR)))
+		else if ((key.equalsIgnoreCase(BORDER_COLOUR)) || (key.equalsIgnoreCase(LEAF_TEXT_COLOUR))
+				|| (key.equalsIgnoreCase(BRANCH_FILL))//SAH  
+				)
 		{
 			if (getHexColour(value) == null)
 			{
@@ -542,6 +553,44 @@ public class TreeMapProperties
 	{
 		return Boolean.parseBoolean(properties.getProperty(IS_TRANSPARENT.toLowerCase()));
 	}
+	
+	/** Reports whether or not the session should be run interactively when constructing the treemap.
+	 *  @return True the program will display the treemap in a window to the user.
+	 */
+	public boolean getIsInteractive()//SAH
+	{
+		return Boolean.parseBoolean(properties.getProperty(IS_INTERACTIVE.toLowerCase()));//SAH
+	}
+	
+	/** Reports whether or not the svg should have all leaves drawn as circles instead of rectangles.
+	 *  @return True the program will draw an svg with circular leaves.
+	 */
+	public boolean getCircleLeaves()//SAH
+	{
+		return Boolean.parseBoolean(properties.getProperty(CIRCLE_LEAVES.toLowerCase()));//SAH
+	}
+	
+	/** Reports whether or not all leaves should be labeled in the exported svg.
+	 *  @return True the program will write all leaft labels into the svg.
+	 */
+	public boolean getLabelAll()//SAH
+	{
+		return Boolean.parseBoolean(properties.getProperty(LABEL_ALL.toLowerCase()));//SAH
+	}
+
+	/** Reports whether or not branches should be drawn in the svg output.
+	 *  @return True the program will draw branches in the svg.
+	 */
+	public boolean getDrawBranches()//SAH
+	{
+		String s=(properties.getProperty(BRANCH_FILL.toLowerCase()));
+		return ! (s.equals("-1") || s.equals("false"));//SAH
+	}
+	
+	public String[] getBranchColors() {//SAH
+		return properties.getProperty(BRANCH_FILL.toLowerCase()).split(",");
+	}
+
 
 	/** Reports whether or not labels are used to define the treemap hierarchy.
 	 *  @return True if labels are used to define the treemap hierarchy.
@@ -623,6 +672,14 @@ public class TreeMapProperties
 	public float getLeafMaxTextSize()
 	{
 		return Float.parseFloat(properties.getProperty(MAX_LEAF_TEXT.toLowerCase()));
+	}
+
+	/** Provides the minimum leaf text size pixels.
+	 *  @return Minimum leaf text size in pixels.
+	 */
+	public float getLeafMinTextSize()
+	{
+		return Float.parseFloat(properties.getProperty(MIN_LEAF_TEXT.toLowerCase()));
 	}
 
 	/** Provides the mutation index that controls the degree of colour mutation when using evolutionary colour scheme.
@@ -783,6 +840,7 @@ public class TreeMapProperties
 		properties.setProperty(LEAF_VECTOR_WIDTH.toLowerCase(),"0.3");
 		properties.setProperty(MAX_BRANCH_TEXT.toLowerCase(),"0");		
 		properties.setProperty(MAX_LEAF_TEXT.toLowerCase(),"8");
+		properties.setProperty(MIN_LEAF_TEXT.toLowerCase(),"5");
 		properties.setProperty(MUTATION.toLowerCase(),"0.2");
 		properties.setProperty(RAND_COLOUR_LEVEL.toLowerCase(),"1");
 		properties.setProperty(SEED.toLowerCase(),"0");		
@@ -795,11 +853,15 @@ public class TreeMapProperties
 		properties.setProperty(TEXT_ONLY.toLowerCase(),"false");
 		properties.setProperty(TEXT_COLOUR.toLowerCase(),"#00000064");
 		properties.setProperty(IS_TRANSPARENT.toLowerCase(),"true");
+		properties.setProperty(IS_INTERACTIVE.toLowerCase(),"true");//SAH
+		properties.setProperty(CIRCLE_LEAVES.toLowerCase(),"false");//SAH
 		properties.setProperty(FILE_TYPE.toLowerCase(),"csv");
 		properties.setProperty(USE_LABELS.toLowerCase(),"true");
 		properties.setProperty(VECTOR_WIDTH.toLowerCase(),"0.3");
 		properties.setProperty(VERBOSE.toLowerCase(),"false");
 		properties.setProperty(WIDTH.toLowerCase(),"400");
+		properties.setProperty(BRANCH_FILL.toLowerCase(),"-1");
+		properties.setProperty(LABEL_ALL.toLowerCase(),"false");
 	}
 
 	/** Checks to see that either a valid level is given with a multi-level parameter or no level is given.

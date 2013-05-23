@@ -107,6 +107,7 @@ public class TreeMapPanel extends JPanel
 	//private boolean isZooming;
 
 	private float maxLeafText;			// Largest text size for leaf labels (point size or 0 for no max)
+	//private float max
 	private float[] maxBranchTexts;		// Largest text size for non-leaf labels (point size or 0 for no max)
 
 	private AffineTransform trans,    	// Georef to pixel transformation.
@@ -1615,7 +1616,7 @@ public class TreeMapPanel extends JPanel
 		try
 		{    
 			BufferedWriter outFile;
-			double multiplier = 50.0;		// To remove Safari printing bug.
+			double multiplier = 1.0;//50.0;		// To remove Safari printing bug.
 			String borderColourHex = new String("#"+Integer.toHexString((borderColour.getRGB() & 0xffffff) | 0x1000000).substring(1));
 
 			// Decide whether to compress based on file extension.
@@ -1639,13 +1640,15 @@ public class TreeMapPanel extends JPanel
 			writeLine("<!-- Format definitions -->", outFile);
 			writeLine("<defs>", outFile);
 			writeLine(" <style type=\"text/css\"><![CDATA[",outFile);
+			String fontName = treeMappa.getConfig().getLeafTextFont(); //SAH
+			if (fontName.length()==0) fontName = "sans-serif"; //SAH
 			if (svgIsTransparent)
 			{
 				writeLine("   #leafDisp   { stroke:black; stroke-width:"+(leafVectorWidth*multiplier)+"; stroke-opacity:0.6; fill:none; }",outFile);
 				writeLine("   #branchDisp { stroke:black; stroke-width:"+(10*vectorWidths[0]*multiplier)+"; stroke-opacity:0.6; fill:none; }",outFile);
 				writeLine("   polyline    { stroke:"+borderColourHex+"; stroke-width:0.05%; stroke-opacity:0.3; fill:none; }",outFile);
 				writeLine("   polygon     { stroke:black; stroke-width:0.03%; stroke-opacity:0.4; fill-opacity:0.9; }",outFile);
-				writeLine("   text        { stroke:none; font-family:sans-serif; text-anchor:middle; }",outFile);
+				writeLine("   text        { stroke:none; font-family:" + fontName + "; text-anchor:start; }",outFile);
 			}
 			else
 			{
@@ -1653,7 +1656,7 @@ public class TreeMapPanel extends JPanel
 				writeLine("   #branchDisp { stroke:#cccccc; stroke-width:"+(10*vectorWidths[0]*multiplier)+"; fill:none; }",outFile);
 				writeLine("   polyline    { stroke:"+borderColourHex+"; stroke-width:0.05%; fill:none; }",outFile);
 				writeLine("   polygon     { stroke:none; }",outFile);
-				writeLine("   text        { stroke:none; font-family:sans-serif; text-anchor:middle; }",outFile);
+				writeLine("   text        { stroke:none; font-family:" + fontName + "; text-anchor:start; }",outFile);
 			}
 			writeLine(" ]]></style>",outFile);
 			writeLine("</defs>", outFile);
@@ -1670,39 +1673,129 @@ public class TreeMapPanel extends JPanel
 			writeLine("<g id=\"spatialObject\">",outFile);
 			writeLine("",outFile);  
 
-			for (NodePanel leaf : leaves)
-			{
-				// Fill leaf background.
-				Rectangle bounds = leaf.getBounds().getBounds();
-				writeLine("<polygon style=\"fill:"+leaf.getHexColour()+";\" points=\""+(multiplier*bounds.x)+","+(multiplier*bounds.y)+" "+
-						(multiplier*(bounds.x+bounds.width))+","+(multiplier*bounds.y)+" "+
-						(multiplier*(bounds.x+bounds.width))+","+(multiplier*(bounds.y+bounds.height))+" "+
-						(multiplier*bounds.x)+","+(multiplier*(bounds.y+bounds.height))+
-						"\" />",outFile);
-			}
-
-			for (NodePanel branch : branches)
-			{
+			
+			//if (treeMappa.getConfig().getBorders()[0]!=0) {//SAH
+			if (this.treeMappa.getConfig().getDrawBranches()) {
+				
+				String[] branchColors=treeMappa.getConfig().getBranchColors();
+				int numColors=branchColors.length;
+				int currentColor=-1;
+				boolean randColor=false;
+				if (numColors==0) {
+					randColor=true;
+				}
+				String borderColor=new String("#"+Integer.toHexString((treeMappa.getConfig().getBorderColour().getRGB() & 0xffffff) | 0x1000000).substring(1));
+				
+				for (NodePanel branch : branches) {
 				// Fill branch background.
-				Rectangle bounds = branch.getBounds().getBounds();				
-				writeLine("<polyline points=\""+(multiplier*bounds.x)+","+(multiplier*bounds.y)+" "+
+				Rectangle bounds = branch.getBounds().getBounds();
+				String color = branch.getHexColour();
+				if (!randColor) {
+					currentColor++;
+					if (currentColor>=branchColors.length) currentColor=0;
+					//System.out.println(branchColors.length);
+					//System.out.println(currentColor);
+					color=branchColors[currentColor];
+				}
+				/*writeLine("<polyline points=\""+(multiplier*bounds.x)+","+(multiplier*bounds.y)+" "+
 						(multiplier*(bounds.x+bounds.width))+","+(multiplier*bounds.y)+" "+
 						(multiplier*(bounds.x+bounds.width))+","+(multiplier*(bounds.y+bounds.height))+" "+
 						(multiplier*bounds.x)+","+(multiplier*(bounds.y+bounds.height))+" "+
 						(multiplier*bounds.x)+","+(multiplier*bounds.y)+
-						"\" />",outFile);
-			}
+						"\" />",outFile);*/
+				/*bounds.x-=1;
+				bounds.y-=1;
+				bounds.width-=2;
+				bounds.height-=2;*/
+				int round = 5;
+				if (bounds.width<25 || bounds.height<25) round = 2;
+				else if (bounds.width>100 && bounds.height>100) round = 10;
+				//String id = branch.getLabel().replace(" ", "").replace("\\.","");
+				StringBuilder sb=new StringBuilder();
+				sb.append("<rect style=\"fill:").append(color).append(";");
+				if (treeMappa.getConfig().getBorders()[0]!=0) {
+					sb.append("stroke:").append(borderColor).append(";stroke-opacity:1");
+				}
+				sb.append("\" ");
+				sb.append("x=\"").append(bounds.x).append("\" y=\"").append(bounds.y).append("\" ");
+				sb.append("width=\"").append(bounds.width).append("\" ");
+				sb.append("height=\"").append(bounds.height).append("\" rx=\"").append(round).append("\" ry=\"").append(round);
+				sb.append("\"/>");
+				
+				writeLine(sb.toString(),outFile);
+				
+				/*writeLine("<rect style=\"fill:"+color+";\" x=\""+(bounds.x)+"\"" +
+						" y=\""+(bounds.y)+"\" width=\""+(bounds.width)+"\"" +
+						" height=\""+(bounds.height)+"\" rx=\"" + round + "\" ry=\"" + round + "\"/>",outFile);//SAH*/
 
+			}
+		}
+			int leafCounter=0;
+			for (NodePanel leaf : leaves)
+			{
+				// Fill leaf background.
+				Rectangle bounds = leaf.getBounds().getBounds();
+				/*writeLine("<polygon style=\"fill:"+leaf.getHexColour()+";\" points=\""+(multiplier*bounds.x)+","+(multiplier*bounds.y)+" "+
+						(multiplier*(bounds.x+bounds.width))+","+(multiplier*bounds.y)+" "+
+						(multiplier*(bounds.x+bounds.width))+","+(multiplier*(bounds.y+bounds.height))+" "+
+						(multiplier*bounds.x)+","+(multiplier*(bounds.y+bounds.height))+
+						"\" />",outFile);*/
+				//Create rounded corners
+				bounds.x+=2; //SAH
+				bounds.y+=2; //SAH
+				bounds.width-=4; //SAH
+				bounds.height-=4; //SAH
+				int roundx = 5, roundy=5;//SAH
+				
+				if (treeMappa.getConfig().getCircleLeaves()) {
+					roundx=bounds.width/2;
+					roundy=bounds.height/2;
+				} else if (bounds.width<25 || bounds.height<25) {
+					roundx = 2;
+					roundy=2;
+				} else if (bounds.width>100 && bounds.height>100) {
+					roundx = 10;
+					roundy=10;
+				}
+				
+				String id = leaf.getLabel().replaceAll("[^a-zA-Z0-9]", "");//Strip out all non-alphanumerics
+				if (id.length()>10) id = id.substring(0,10);
+				id=id+leafCounter++;//Guarentee unqiue name
+				
+				if (svgIsTransparent) {
+					//float transparency = leaf.getColour().getAlpha()/(float)255;
+					writeLine("<rect id=\"" + id + "\" style=\"fill:"+leaf.getHexColour()+";opacity:" + leaf.getColorAlpha() + 
+						";fill-opacity:" + leaf.getColorAlpha() + "\" x=\""+(bounds.x)+"\"" +
+						" y=\""+(bounds.y)+"\" width=\""+(bounds.width)+"\"" +
+						" height=\""+(bounds.height)+"\" rx=\"" + roundx + "\" ry=\"" + roundy + "\"/>",outFile);
+				} else {
+					writeLine("<rect id=\"" + id + "\" style=\"fill:"+leaf.getHexColour()+"\" x=\""+(bounds.x)+"\"" +
+							" y=\""+(bounds.y)+"\" width=\""+(bounds.width)+"\"" +
+							" height=\""+(bounds.height)+"\" rx=\"" + roundx + "\" ry=\"" + roundy + "\"/>",outFile);
+				}
+			}
+			
+			
 			if (showLeafLabels)
 			{
 				String hexLeafTextColour = Integer.toHexString(leafTextColour.getRGB());
 				hexLeafTextColour = new String("#"+hexLeafTextColour.substring(2, hexLeafTextColour.length()));
 				float alpha = leafTextColour.getAlpha()/255f;
+				
+				float fontSize1 = maxLeafText;//SAH
+				//float fontSize2 = maxLeafText/4*3;//SAH
+				float fontSize2 = this.treeMappa.getConfig().getLeafMinTextSize();//SAH
+				//float fontSize3 = maxLeafText/2;//SAH
 
 				for (NodePanel leaf : leaves)
 				{
 					// Draw leaf label.
 					Rectangle bounds = leaf.getBounds().getBounds();
+					bounds.x+=2; //SAH
+					bounds.y+=2; //SAH
+					bounds.width-=4; //SAH
+					bounds.height-=4; //SAH
+					
 
 					if (bounds.width*bounds.height > 0)
 					{
@@ -1731,7 +1824,7 @@ public class TreeMapPanel extends JPanel
 
 						horizScale = Math.min(horizXScale, horizYScale);
 						vertScale  = Math.min(vertXScale, vertYScale);
-
+						
 						if (maxLeafText > 0)
 						{
 							if (horizScale > maxLeafText/40f)
@@ -1748,12 +1841,40 @@ public class TreeMapPanel extends JPanel
 
 						float fontSize = 40*horizScale;
 
-						if (fontSize >= 1)
+						//if (fontSize<fontSize1 && fontSize>fontSize2) fontSize=fontSize2;
+						if (!treeMappa.getConfig().getLabelAll()) {
+							//We are not labeling all
+							if (fontSize<fontSize1 && fontSize>fontSize2) fontSize=fontSize2;
+							else if (fontSize<fontSize2) fontSize=0; //Don't show
+						} else if (fontSize<fontSize1) fontSize=fontSize2;
+						//else if (fontSize<fontSize2 && fontSize>fontSize3) fontSize=fontSize3;
+						//else if (fontSize<fontSize3) fontSize=1;
+						//fontSize is now max, 3/4*max, 1/2*max, or 1
+						if (fontSize >= fontSize2)//was >=1 with the above if/else inside this //SAH
 						{
+							
 							for (int i=0; i<lines.length; i++)
 							{
-
 								double y = bounds.y + (bounds.height/2) + horizScale*((i+1)*lineHeight -totalHeight/2 -lm.getDescent());
+								
+								//SAH Just put labels in the lower left!
+								double x = Math.min(bounds.x+bounds.width/2.0,bounds.x+2);//maxLeafText+7
+								y = Math.max(y,bounds.y+bounds.height-10);//SAH was -2
+								/*if (bounds.height>25) {//Move it to the bottom if we have a taller shape
+									y = bounds.y+bounds.height-2;
+								}*/
+								
+								/*if (svgIsTransparent)
+								{
+									writeLine("<text fill=\""+hexLeafTextColour+"\" style=\"opacity:"+alpha+"\" x=\""+x+"\" y=\""+ y +"\" font-size=\""+(multiplier*fontSize)+"\" >"+lines[i]+"</text>",outFile);
+								}
+								else
+								{*/
+									writeLine("<text fill=\""+hexLeafTextColour+"\" x=\""+(x)+"\" y=\""+(y)+"\" font-size=\""+(multiplier*fontSize)+"\" >"+lines[i]+"</text>",outFile);
+								//}
+								///END SAH Insertion, commenting original below
+
+								/*
 
 								if (allowVerticalLabels && (vertScale > horizScale))
 								{
@@ -1779,7 +1900,7 @@ public class TreeMapPanel extends JPanel
 								if (allowVerticalLabels && (vertScale > horizScale))
 								{
 									writeLine("</g>", outFile);
-								}
+								}*/
 							}
 						}
 					}
@@ -1788,6 +1909,7 @@ public class TreeMapPanel extends JPanel
 
 			if (showBranchLabels)
 			{
+				
 				for (NodePanel branch : branches)
 				{
 					// Draw branch label.
@@ -1796,6 +1918,7 @@ public class TreeMapPanel extends JPanel
 					if (showBranchLabels && bounds.width > 0)
 					{
 						int level = branch.getLevel();	
+						
 						String hexBranchTextColour = Integer.toHexString(branchTextColours[level-1].getRGB());
 						hexBranchTextColour = new String("#"+hexBranchTextColour.substring(2, hexBranchTextColour.length()));
 						float alpha = branchTextColours[level].getAlpha()/255f;
