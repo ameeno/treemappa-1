@@ -169,6 +169,19 @@ class NodePanel
 		}
 		return new String("#"+Integer.toHexString((colour.getRGB() & 0xffffff) | 0x1000000).substring(1));
 	}
+	
+	/** Reports the alpha value [0-1] of the node. Non-leaf nodes have no colour and return 1.
+	 *  @return Alpha value of leaf node with alpha, or null if not a leaf.
+	 */
+	float getColorAlpha()//SAH
+	{
+		if (colour == null)
+		{
+			return 1;
+		}
+		//32 bit integer with bits 0-7 blue, 8-15 green, red, -31 alpha 
+		return colour.getAlpha()/255f;
+	}
 
 	/** Reports the depth of this node. 0 is the root node, 1 is a child of the root, 2 is a grandchild etc.
 	 *  @return Level of node.
