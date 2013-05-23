@@ -8,17 +8,17 @@ This port is focused on running from terminal/command line. An example creating 
 
 Changes from upstream include:
 
-*Remove quotations surrounding fields in CSV files (Still todo: do not split on a comma within a quoted field)
-*Allow creation of svg without display of panel/user interaction
-*SVG output changes
-**Allow user to specify font to be used
-**Use rect instead of polygon in svg
-**Allow for rounded corners on rect
-**Restrict font size to one of three sizes
-**Allow user option to hide labels that would be smaller than smallest of three font sizes (LabelAll option)
-**Allow user to specify 'base' font size
-**Place all labels in the lower-left corner of leaf nodes
-**Allow for branch nodes to have a fill color (svg only)
-**Started on allowing a strange option to create treemaps with leaves as circles, but this is incomplete and should be removed. (And not something I personally like)
+* Remove quotations surrounding fields in CSV files (Still todo: do not split on a comma within a quoted field)
+* Allow creation of svg without display of panel/user interaction
+* SVG output changes (the remainder of the list)
+* Allow user to specify font to be used
+* Use rect instead of polygon in svg
+* Allow for rounded corners on rect
+* Restrict font size to one of three sizes
+* Allow user option to hide labels that would be smaller than smallest of three font sizes (LabelAll option)
+* Allow user to specify 'base' font size
+* Place all labels in the lower-left corner of leaf nodes
+* Allow for branch nodes to have a fill color (svg only)
+* Started on allowing a strange option to create treemaps with leaves as circles, but this is incomplete and should be removed. (And not something I personally like)
 
 
